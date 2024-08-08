@@ -1,0 +1,293 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* Global reset and custom variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color variables */
+    --Green-200: hsl(148, 38%, 91%);
+    --Green-600: hsl(169, 82%, 27%);
+    --green-400: hsl(169, 100%, 35%);
+    --Red: hsl(0, 66%, 54%);
+    --White: hsl(0, 0%, 100%);
+    --Grey: hsl(186, 15%, 59%);
+    --Grey-900: hsl(187, 24%, 22%);
+}
+
+/* Body styles */
+body {
+    background-color: var(--Green-200);
+    width: 100%;
+    font-family: "Karla", sans-serif;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+/* Label styles */
+label {
+    color: var(--Grey-900);
+    font-weight: 500;
+}
+
+label span {
+    color: var(--green-400);
+    margin-left: 5px;
+}
+
+/* Input and textarea styles */
+input[type='text'],
+input[type='email'],
+textarea {
+    width: 100%;
+    padding: .8rem;
+    margin: .5rem 0;
+    font-family: inherit;
+    border: solid 2px var(--Grey);
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+input[type='text']:hover,
+input[type='email']:hover,
+textarea:hover {
+    outline: solid 1px var(--green-400);
+    border: solid 1px var(--green-400);
+    cursor: pointer;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+textarea:focus {
+    outline: solid 1px var(--green-400);
+    border: solid 1px var(--green-400);
+    cursor: auto;
+}
+
+textarea {
+    height: 100px;
+}
+
+/* Container and form styles */
+.container {
+    width: 650px;
+    height: 100%;
+    margin: 80px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .contact-form {
+    background-color: var(--White);
+    width: 100%;
+    border-radius: 10px;
+    padding: 30px;
+    height: max-content;
+}
+
+.contact-form h1 {
+    font-size: 1.6rem;
+    color: var(--Grey-900);
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Name labels and inputs */
+form .name-labels {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+/* Email input */
+form .email {
+    margin-bottom: 15px;
+}
+
+/* Query type radios and labels */
+form .query-type {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+form .types {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+    margin-top: 17px;
+    margin-bottom: 10px;
+}
+
+.Request,
+.Enquiry {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    border: solid 2px var(--Grey);
+    padding: .8rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.Request:hover,
+.Enquiry:hover {
+    outline: solid 1px var(--green-400);
+    border: solid 1px var(--green-400);
+    cursor: pointer;
+}
+
+/* Error messages */
+.valid_email,
+.required,
+.toSubmit,
+.required_query {
+    color: var(--Red);
+    display: none;
+    font-weight:400;
+}
+
+/* Radio and checkbox styles */
+input[type="radio"],
+.contact-form input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+}
+
+.contact-form input[type="checkbox"]:focus {
+    background-color: black;
+    accent-color: var(--Green-600);
+    outline: none;
+}
+
+/* Message textarea */
+.message {
+    margin-bottom: 30px;
+}
+
+/* Contact team consent */
+.contact-team {
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-bottom: 25px;
+}
+.contact{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.contact input[type="checkbox"] {
+    margin-right: 12px;
+    width: 1rem;
+    height: 1rem;
+}
+
+.contact h5 {
+    font-weight: 500;
+    color: var(--Grey-900);
+    font-size: 1rem;
+}
+
+h5 span {
+    margin-left: 5px;
+    color: var(--green-400);
+}
+
+
+/* Submit button */
+button {
+    letter-spacing: 1px;
+    padding: 20px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #dedede;
+    background-color: var(--Green-600);
+    border: none;
+    border-radius: 10px;
+}
+button:hover{
+    cursor: pointer;
+    background-color: var(--Grey-900);
+}
+
+/* Success message */
+.container .success {
+    background-color: var(--Grey-900);
+    border-radius: 10px;
+    color: var(--White);
+    padding: 30px;
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    display: none;
+}
+
+.container .success.active {
+    display: block;
+    pointer-events: all;
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0%, 25%, 50%, 75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.success h3 {
+    display: flex;
+    gap: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.success p {
+    font-size: .8rem;
+}
+
+/* Responsive design */
+@media screen and (max-width: 670px) {
+    .container {
+        width: 90%;
+        margin: 100px 0;
+    }
+
+    .container .success {
+        width: 70%;
+    }
+
+    form .name-labels,
+    form .types {
+    flex-direction: column;
+    }
+
+    textarea {
+        height: 300px;
+    }
+
+    .Request,
+    .Enquiry {
+        font-size: 1rem;
+    }
+}
